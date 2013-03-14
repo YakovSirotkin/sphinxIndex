@@ -1,10 +1,10 @@
 package com.sphinxsearch.indexer;
 
 public class DocumentProperty {
-    private String name;
-    private String value;
+    private final String name;
+    private final String value;
 
-    public DocumentProperty(String name, String value) {
+    public DocumentProperty(final String name, final String value) {
         this.name = name;
         this.value = value;
     }

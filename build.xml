@@ -6,7 +6,7 @@
 
     <target name="jar" depends="clean">
         <mkdir dir="classes"/>
-        <javac srcdir="src" destdir="classes" debug="yes"/>
+        <javac srcdir="src" destdir="classes" debug="yes" includeantruntime="false"/>
         <jar jarfile="indexCreator.jar" basedir="classes"/>
     </target>
 </project>

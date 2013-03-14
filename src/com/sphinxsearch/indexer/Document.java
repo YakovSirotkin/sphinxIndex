@@ -6,27 +6,27 @@ import java.util.Arrays;
 
 public class Document {
 
-    private int id;
+    private final int id;
 
-    private List<DocumentProperty> documentProperties = new ArrayList<DocumentProperty>();
+    private final List<DocumentProperty> documentProperties = new ArrayList<DocumentProperty>();
 
-    public Document(int id, DocumentProperty... documentProperties ) {
+    public Document(final int id, final DocumentProperty... documentProperties ) {
         this.id = id;
         addProperties(documentProperties);
     }
 
-    public Document addProperties(DocumentProperty... documentProperties) {
+    public Document addProperties(final DocumentProperty... documentProperties) {
         this.documentProperties.addAll(Arrays.asList(documentProperties));
-        return this; 
+        return this;
     }
 
-    public Document addProperty(String name, Object value){
+    public Document addProperty(final String name, final Object value) {
         addProperties(new DocumentProperty(name, value.toString()));
         return this;
     }
 
-    public Document setMVA(String name, int... values){
-        StringBuilder list = new StringBuilder();
+    public Document setMVA(final String name, final int... values) {
+        final StringBuilder list = new StringBuilder();
         for (int i = 0; i < values.length; i++) {
             if (i > 0) {
                 list.append(", ");
@@ -38,14 +38,14 @@ public class Document {
         return this;
     }
 
-    public Document setFlag(String name){
+    public Document setFlag(final String name) {
         addProperties(new DocumentProperty(name, "1"));
         return this;
     }
 
     public String getXmlpipe2Tag() {
-        StringBuilder sb = new StringBuilder("<sphinx:document id=\"" + id + "\">\n");
-        for (DocumentProperty property : documentProperties) {
+        final StringBuilder sb = new StringBuilder("<sphinx:document id=\"").append(id).append("\">\n");
+        for (final DocumentProperty property : documentProperties) {
             sb.append(property.getXmlpipe2Tag());
         }
         sb.append("</sphinx:document>");

@@ -12,8 +12,8 @@ public class Index {
     private Index() {
     }
 
-    public static Index createIndex(IndexDescription desc) {
-        Index index = new Index();
+    public static Index createIndex(final IndexDescription desc) {
+        final Index index = new Index();
         try {
             index.out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out, "UTF-8")));
         } catch (UnsupportedEncodingException e) {
@@ -25,8 +25,8 @@ public class Index {
         return index;
     }
 
-    public void addDocuments(Document... docs) {
-        for (Document doc : docs) {
+    public void addDocuments(final Document... docs) {
+        for (final Document doc : docs) {
             out.println(doc.getXmlpipe2Tag());
         }
     }
